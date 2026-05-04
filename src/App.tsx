@@ -9,7 +9,7 @@ import Contact from './pages/Contact'
 import JoinTeam from './pages/JoinTeam'
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-background text-on-background">
         <Navbar />
         <Routes>
