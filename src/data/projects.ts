@@ -1,3 +1,5 @@
+import { asset } from '../utils/asset'
+
 export type ProjectCategory = 'Music Videos' | 'Short Films' | 'Micro Series' | 'Commercials'
 
 export interface ProjectCredits {
@@ -27,7 +29,7 @@ export const ytThumb = (id: string) =>
   `https://img.youtube.com/vi/${id}/sddefault.jpg`
 
 // Dark placeholder for Instagram (no public thumbnail API)
-export const igPlaceholder = '/media/ig-placeholder.svg'
+export const igPlaceholder = asset('/media/ig-placeholder.svg')
 
 // Returns the iframe embed URL for a project
 export const getEmbedUrl = (project: Project): string | undefined => {

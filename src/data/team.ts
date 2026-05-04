@@ -1,3 +1,5 @@
+import { asset } from '../utils/asset'
+
 export interface TeamMember {
   id: string
   name: string
@@ -16,8 +18,8 @@ export const teamMembers: TeamMember[] = [
     name: 'SUMEET AGRAWAL',
     title: 'Founder / Executive Director',
     bio: 'Sumeet Agrawal is a San Francisco Bay Area–based actor, creative director, and storyteller whose work bridges emotion, narrative, and cinematic expression. With a growing body of work across music videos, short films, and theatre, he brings a distinctive blend of authenticity and intensity to every performance.\n\nHe gained wide recognition for "Jee Karda Reimagined," a music video he both produced and starred in, which went on to win Best Music Video at the Bay Area Cine Awards (BACA) 2025. The project marked a defining moment in his creative journey, establishing him as a compelling voice in the independent film space.\n\nBeyond acting, Sumeet is deeply passionate about visual storytelling, modeling, and dance—art forms that enhance his expressive range and on-screen presence.\n\nBy day, Sumeet is a Product Management executive at Salesforce, where he leads innovation at the intersection of data, AI, and enterprise technology. This dual identity—creative storyteller and technology leader—allows him to bring a rare combination of structured thinking and artistic vision to his work.\n\nAs a co-creator of Trivenzaa, Sumeet is committed to building a platform that empowers emerging talent and brings meaningful, thought-provoking stories to life. His work is driven by a simple belief: storytelling has the power to connect, challenge perspectives, and create lasting impact.\n\n"For me, acting isn\'t about performing—it\'s about experiencing every moment truthfully and making someone, somewhere, feel seen."',
-    imageUrl: '/media/sumeet_about.jpeg',
-    sketchImageUrl: '/media/sumeet_sketch.png',
+    imageUrl: asset('/media/sumeet_about.jpeg'),
+    sketchImageUrl: asset('/media/sumeet_sketch.png'),
     imageAlt: 'Sumeet Agrawal — Founder & Creative Director of Trivenzaa',
     instagramUrl: 'https://www.instagram.com/sumeet_ag/',
   },

@@ -3,6 +3,7 @@
 // To swap real content: update imageUrl/videoUrl fields and drop
 // files into public/media/[section]/
 // ============================================================
+import { asset } from '../utils/asset'
 
 export const heroContent = {
   home: {
@@ -26,7 +27,7 @@ export const heroContent = {
 export const aboutContent = {
   story: {
     // Replace with '/media/team/studio-portrait.jpg' when real content arrives
-    imageUrl: '/media/sumeet_about.jpeg',
+    imageUrl: asset('/media/sumeet_about.jpeg'),
     imageAlt: 'Sumeet Agrawal — Founder & Creative Director of Trivenzaa',
     badgeText: '12 Years of Excellence',
     headlinePart1: 'The Art of the',

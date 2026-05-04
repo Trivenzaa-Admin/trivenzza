@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { asset } from '../utils/asset'
 import VideoModal from '../components/ui/VideoModal'
 import HomeCarousel from '../components/ui/HomeCarousel'
 import { projects } from '../data/projects'
@@ -12,10 +13,10 @@ export default function Home() {
   const [awardsIndex, setAwardsIndex] = useState(0)
 
   const awardPhotos = [
-    { src: '/media/awards/img_1845.png',     alt: 'Trivenzaa award moment',                                label: null },
-    { src: '/media/awards/img_1848.png',     alt: 'Trivenzaa award moment',                                label: null },
-    { src: '/media/awards/baca_award_1.png', alt: 'Bollywood America Cine Awards — BACA',                  label: 'BACA Awards' },
-    { src: '/media/awards/baca_award_2.jpg', alt: 'Trivenzaa team receiving BACA Best Music Video award',  label: 'BACA Awards — Best Music Video' },
+    { src: asset('/media/awards/img_1845.png'),     alt: 'Trivenzaa award moment',                                label: null },
+    { src: asset('/media/awards/img_1848.png'),     alt: 'Trivenzaa award moment',                                label: null },
+    { src: asset('/media/awards/baca_award_1.png'), alt: 'Bollywood America Cine Awards — BACA',                  label: 'BACA Awards' },
+    { src: asset('/media/awards/baca_award_2.jpg'), alt: 'Trivenzaa team receiving BACA Best Music Video award',  label: 'BACA Awards — Best Music Video' },
   ]
   const awardsTotal = awardPhotos.length
   const awardsRight = (awardsIndex + 1) % awardsTotal

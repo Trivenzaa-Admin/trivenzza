@@ -51,7 +51,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
             <img
-              src="/logo.jpeg"
+              src={`${import.meta.env.BASE_URL}logo.jpeg`}
               alt="Trivenzaa"
               className="h-10 w-auto object-contain"
             />
@@ -113,7 +113,7 @@ export default function Navbar() {
 
         {/* Mobile logo */}
         <Link to="/" onClick={() => setIsMenuOpen(false)}>
-          <img src="/logo.jpeg" alt="Trivenzaa" className="h-12 w-auto object-contain mb-4" />
+          <img src={`${import.meta.env.BASE_URL}logo.jpeg`} alt="Trivenzaa" className="h-12 w-auto object-contain mb-4" />
         </Link>
 
         {/* Mobile nav links */}
