@@ -1,0 +1,76 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        // Yellow theme — finalized (values from CSS variables in index.css)
+        "primary": "rgb(var(--color-primary) / <alpha-value>)",
+        "primary-container": "rgb(var(--color-primary-container) / <alpha-value>)",
+        "on-primary-container": "rgb(var(--color-on-primary-container) / <alpha-value>)",
+        "inverse-primary": "rgb(var(--color-inverse-primary) / <alpha-value>)",
+        "on-primary": "#1a1000",
+        "secondary": "#e9c349",
+        "secondary-container": "#af8d11",
+        "on-secondary": "#3c2f00",
+        "on-secondary-container": "#342800",
+        "tertiary": "#ffb4a1",
+        "tertiary-container": "#bf3003",
+        "on-tertiary": "#611300",
+        "background": "#131313",
+        "on-background": "#e5e2e1",
+        "surface": "#131313",
+        "surface-dim": "#131313",
+        "surface-bright": "#3a3939",
+        "surface-variant": "#353534",
+        "surface-tint": "#b7c4ff",
+        "surface-container-lowest": "#0e0e0e",
+        "surface-container-low": "#1c1b1b",
+        "surface-container": "#201f1f",
+        "surface-container-high": "#2a2a2a",
+        "surface-container-highest": "#353534",
+        "on-surface": "#e5e2e1",
+        "on-surface-variant": "#c3c5d9",
+        "inverse-surface": "#e5e2e1",
+        "inverse-on-surface": "#313030",
+        "outline": "#8d90a2",
+        "outline-variant": "#434656",
+        "error": "#ffb4ab",
+        "error-container": "#93000a",
+        "on-error": "#690005",
+        "on-error-container": "#ffdad6",
+      },
+      borderRadius: {
+        DEFAULT: "0px",
+        none: "0px",
+        sm: "0px",
+        md: "0px",
+        lg: "0px",
+        xl: "0px",
+        "2xl": "0px",
+        "3xl": "0px",
+        full: "9999px",
+      },
+      fontFamily: {
+        "noto-serif": ["Noto Serif", "serif"],
+        "manrope": ["Manrope", "sans-serif"],
+        "headline": ["Cormorant Garamond", "Noto Serif", "serif"],
+        "body": ["Manrope", "sans-serif"],
+        "label": ["Manrope", "sans-serif"],
+      },
+      aspectRatio: {
+        "21/9": "21 / 9",
+        "4/5": "4 / 5",
+        "3/4": "3 / 4",
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
