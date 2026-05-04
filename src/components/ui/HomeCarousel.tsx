@@ -20,7 +20,7 @@ export default function HomeCarousel({ projects, onVideoOpen }: HomeCarouselProp
   const stripRef = useRef<HTMLDivElement>(null)
   const xRef = useRef(0)
   const isPausedRef = useRef(false)
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | undefined>(undefined)
   const touchStartXRef = useRef(0)
   const touchLastXRef = useRef(0)
 
