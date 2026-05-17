@@ -28,7 +28,8 @@ export const teamMembers: TeamMember[] = [
     name: 'AKSHATA BRAHMAVAR',
     title: 'Actor, Screenwriter & Filmmaker',
     bio: "Akshata Brahmavar is an Indian actor, screenwriter, singer, and emerging filmmaker based in the San Francisco Bay Area. She began performing in theatre at the age of twelve, where she discovered her passion for storytelling and performance.\n\nHer screenplay, Silent Screens, was selected as a finalist at the Los Angeles International Screenplay Awards and is also a nominee for the International Indies Screenplay Awards in Italy for December 2026.\n\nAkshata's creative work spans acting, writing, music, and filmmaking, with a strong focus on emotionally engaging narratives and character-driven storytelling. Her artistic voice is shaped by a deep interest in human emotion, relationships, identity, and the subtle complexities of everyday life.\n\nThrough her work, she aims to create meaningful stories that resonate with audiences across cultures and experiences.",
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBBwyD2aYtSFnFVPsw0bxJ_btAN7gcBosNjTWnDAWUGa8a5j-6_RQ6UT_WG4sV5gpU1d_X4Ww6RvMn0QwbpVWbZBYCCyWJHxdtzfaaZLh8998iMTktUn916RCzTZYuWCUI6FeqOT2tjHrIsNAuOiCvBd7UKG05yJS_4WLUItptV93aMlIo07AWmALS35Lo6w93oUhPGL28Co-8jfxBZke_wYoSwWKWcovIvqEbzcjQT40jBl51MSZK4pd7Pkcoyp7PxHQmT9wH16qK7',
+    imageUrl: asset('/media/akshata_about.jpeg'),
+    sketchImageUrl: asset('/media/akshata_sketch.png'),
     imageAlt: 'Portrait of Akshata Brahmavar, Actor, Screenwriter & Filmmaker',
   },
   {
@@ -36,7 +37,8 @@ export const teamMembers: TeamMember[] = [
     name: 'ASHISH',
     title: 'Technology Leader & Actor',
     bio: "Ashish is a San Francisco Bay Area–based actor and model whose creative work is rooted in empathy, authenticity, and a love for meaningful storytelling. Trained in the Meisner technique, he expresses himself across screen and stage, and was recently crowned Mr. Bharat California 2026—a milestone that reflects his commitment to representation and purposeful artistry. He is a passionate advocate for kindness, empathy, and peace toward all living beings.\n\nBy day, Ashish is a technology leader with over 16 years of experience building and scaling consumer products for millions of users, with pivotal roles at Amazon Web Services, Cisco, 1 Mainstream, and McAfee. He holds a Master's in Computer Science from USC and brings deep expertise in distributed systems, AI/ML, and mobile platforms.\n\nAs the technology leader at Trivenzaa, Ashish blends creativity and engineering to build a platform that uplifts emerging talent and delivers content rooted in positivity, purpose, and human connection.",
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDo28sIzdok2TowOTOdcIGNpmR-RywaiJH-0zFEseK0O4907-CbotEhjdSaLekJSEC1VVYfBAyjIYsUv0BURtIickt8SbC8FaMRbEzT3DnHGi99qqiy_RfzkQ81QmQJcUiKsPPbdC8SYPwp_mUgzTbSXmVebxVCAn5dNN13HnUTPbG4ENwtjhM9WKNEF3vaPheXMeEohzi-PI2cQKfdWPoCo_F5qjg3brjBe2QMuEk8xV6hl7UV2zxbqaMDHRcdgzkLON83-Xb4RpFr',
+    imageUrl: asset('/media/ashish_about.jpeg'),
+    sketchImageUrl: asset('/media/ashish_sketch.png'),
     imageAlt: 'Portrait of Ashish, Technology Leader & Actor',
   },
 ]
