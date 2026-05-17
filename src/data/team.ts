@@ -24,12 +24,12 @@ export const teamMembers: TeamMember[] = [
     instagramUrl: 'https://www.instagram.com/sumeet_ag/',
   },
   {
-    id: 'mara-solov',
-    name: 'MARA SOLOV',
-    title: 'Head of Cinematography',
-    bio: "Mara's eye for lighting geometry has redefined the look of modern editorial film, earning her two Cannes Gold Lions and a decade of industry recognition.",
+    id: 'akshata-brahmavar',
+    name: 'AKSHATA BRAHMAVAR',
+    title: 'Actor, Screenwriter & Filmmaker',
+    bio: "Akshata Brahmavar is an Indian actor, screenwriter, singer, and emerging filmmaker based in the San Francisco Bay Area. She began performing in theatre at the age of twelve, where she discovered her passion for storytelling and performance.\n\nHer screenplay, Silent Screens, was selected as a finalist at the Los Angeles International Screenplay Awards and is also a nominee for the International Indies Screenplay Awards in Italy for December 2026.\n\nAkshata's creative work spans acting, writing, music, and filmmaking, with a strong focus on emotionally engaging narratives and character-driven storytelling. Her artistic voice is shaped by a deep interest in human emotion, relationships, identity, and the subtle complexities of everyday life.\n\nThrough her work, she aims to create meaningful stories that resonate with audiences across cultures and experiences.",
     imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBBwyD2aYtSFnFVPsw0bxJ_btAN7gcBosNjTWnDAWUGa8a5j-6_RQ6UT_WG4sV5gpU1d_X4Ww6RvMn0QwbpVWbZBYCCyWJHxdtzfaaZLh8998iMTktUn916RCzTZYuWCUI6FeqOT2tjHrIsNAuOiCvBd7UKG05yJS_4WLUItptV93aMlIo07AWmALS35Lo6w93oUhPGL28Co-8jfxBZke_wYoSwWKWcovIvqEbzcjQT40jBl51MSZK4pd7Pkcoyp7PxHQmT9wH16qK7',
-    imageAlt: 'Black and white portrait of Mara Solov, Head of Cinematography',
+    imageAlt: 'Portrait of Akshata Brahmavar, Actor, Screenwriter & Filmmaker',
   },
   {
     id: 'julian-thorn',
