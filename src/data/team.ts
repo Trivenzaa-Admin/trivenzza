@@ -32,11 +32,11 @@ export const teamMembers: TeamMember[] = [
     imageAlt: 'Portrait of Akshata Brahmavar, Actor, Screenwriter & Filmmaker',
   },
   {
-    id: 'julian-thorn',
-    name: 'JULIAN THORN',
-    title: 'Master Colorist',
-    bio: 'Julian treats color as a narrative tool, sculpting palettes that evoke deep psychological responses in every frame and final grade.',
+    id: 'ashish',
+    name: 'ASHISH',
+    title: 'Technology Leader & Actor',
+    bio: "Ashish is a San Francisco Bay Area–based actor and model whose creative work is rooted in empathy, authenticity, and a love for meaningful storytelling. Trained in the Meisner technique, he expresses himself across screen and stage, and was recently crowned Mr. Bharat California 2026—a milestone that reflects his commitment to representation and purposeful artistry. He is a passionate advocate for kindness, empathy, and peace toward all living beings.\n\nBy day, Ashish is a technology leader with over 16 years of experience building and scaling consumer products for millions of users, with pivotal roles at Amazon Web Services, Cisco, 1 Mainstream, and McAfee. He holds a Master's in Computer Science from USC and brings deep expertise in distributed systems, AI/ML, and mobile platforms.\n\nAs the technology leader at Trivenzaa, Ashish blends creativity and engineering to build a platform that uplifts emerging talent and delivers content rooted in positivity, purpose, and human connection.",
     imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDo28sIzdok2TowOTOdcIGNpmR-RywaiJH-0zFEseK0O4907-CbotEhjdSaLekJSEC1VVYfBAyjIYsUv0BURtIickt8SbC8FaMRbEzT3DnHGi99qqiy_RfzkQ81QmQJcUiKsPPbdC8SYPwp_mUgzTbSXmVebxVCAn5dNN13HnUTPbG4ENwtjhM9WKNEF3vaPheXMeEohzi-PI2cQKfdWPoCo_F5qjg3brjBe2QMuEk8xV6hl7UV2zxbqaMDHRcdgzkLON83-Xb4RpFr',
-    imageAlt: 'Black and white profile portrait of Julian Thorn, Master Colorist',
+    imageAlt: 'Portrait of Ashish, Technology Leader & Actor',
   },
 ]
