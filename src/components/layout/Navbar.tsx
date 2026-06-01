@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -13,6 +13,8 @@ const navLinks = [
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { pathname } = useLocation()
+  const isContact = pathname === '/contact'
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -74,7 +76,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center">
+          <div className={`hidden md:flex items-center ${isContact ? 'invisible' : ''}`}>
             <Link
               to="/contact"
               className="px-6 py-2.5 bg-primary-container text-on-primary-container text-xs font-label font-semibold tracking-widest uppercase transition-all duration-300 hover:bg-inverse-primary active:scale-95"
@@ -137,7 +139,7 @@ export default function Navbar() {
         <Link
           to="/contact"
           onClick={() => setIsMenuOpen(false)}
-          className="mt-4 px-10 py-3 bg-primary-container text-on-primary-container text-xs font-label font-semibold tracking-widest uppercase"
+          className={`mt-4 px-10 py-3 bg-primary-container text-on-primary-container text-xs font-label font-semibold tracking-widest uppercase ${isContact ? 'invisible' : ''}`}
         >
           Start Project
         </Link>

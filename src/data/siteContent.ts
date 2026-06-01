@@ -27,8 +27,8 @@ export const heroContent = {
 export const aboutContent = {
   story: {
     // Replace with '/media/team/studio-portrait.jpg' when real content arrives
-    imageUrl: asset('/media/sumeet_about.jpeg'),
-    imageAlt: 'Sumeet Agrawal — Founder & Creative Director of Trivenzaa',
+    imageUrl: asset('/media/trivenzaa_team.png'),
+    imageAlt: 'Sumeet, Akshata and Ashish — Trivenzaa team at Golden Gate Park',
     badgeText: '12 Years of Excellence',
     headlinePart1: 'The Art of the',
     headlineItalic: 'Atmosphere.',

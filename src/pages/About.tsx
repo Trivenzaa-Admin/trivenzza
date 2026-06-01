@@ -19,12 +19,7 @@ export default function About() {
                 alt={story.imageAlt}
                 className="w-full aspect-[4/5] object-cover grayscale brightness-75 group-hover:brightness-90 group-hover:grayscale-0 transition-all duration-700"
               />
-              {/* Badge */}
-              <div className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-secondary px-6 py-4 z-10">
-                <p className="text-on-secondary text-xs font-label tracking-widest uppercase font-bold">
-                  {story.badgeText}
-                </p>
-              </div>
+
             </div>
           </div>
 

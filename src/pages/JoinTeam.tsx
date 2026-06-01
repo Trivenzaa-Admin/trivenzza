@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 // ─── Web3Forms Configuration ──────────────────────────────────────────────────
 // Same key as Contact.tsx — get it from web3forms.com using trivenzaa@gmail.com
@@ -25,12 +26,23 @@ interface FormErrors {
 const EMPTY_FORM: FormState = { name: '', role: '', portfolio: '', contact: '', file: null }
 
 export default function JoinTeam() {
+  const location = useLocation()
   const [form, setForm]                 = useState<FormState>(EMPTY_FORM)
   const [errors, setErrors]             = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess]   = useState(false)
   const [submitError, setSubmitError]   = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const formRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    const roleParam = params.get('role')
+    if (roleParam && roles.includes(roleParam)) {
+      setForm((prev) => ({ ...prev, role: roleParam }))
+      setTimeout(() => formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+    }
+  }, [location.search])
 
   function validate(): FormErrors {
     const e: FormErrors = {}
@@ -184,7 +196,7 @@ export default function JoinTeam() {
           </div>
 
           {/* Right — form */}
-          <div>
+          <div ref={formRef}>
             <p className="text-on-surface-variant text-xs font-label tracking-[0.3em] uppercase mb-6">
               Apply Now
             </p>
