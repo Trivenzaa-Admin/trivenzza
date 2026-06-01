@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Work', to: '/work' },
   { label: 'Services', to: '/services' },
   { label: 'About', to: '/about' },
-  { label: 'Join Team', to: '/join' },
+  { label: 'Be A Part Of Team', to: '/join' },
   { label: 'Contact', to: '/contact' },
 ]
 
