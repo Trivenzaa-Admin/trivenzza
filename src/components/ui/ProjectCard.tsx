@@ -6,15 +6,10 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, onClick }: ProjectCardProps) {
-  const colSpanClass = `col-span-12 md:col-span-${project.colSpan}`
-
   return (
-    <div
-      className={`${colSpanClass} ${project.offsetClass ?? ''} group cursor-pointer`}
-      onClick={onClick}
-    >
+    <div className="group cursor-pointer" onClick={onClick}>
       {/* Image wrapper */}
-      <div className={`relative overflow-hidden bg-surface-container-low ${project.aspectClass}`}>
+      <div className="relative overflow-hidden bg-surface-container-low aspect-video">
         <img
           src={project.imageUrl}
           alt={project.imageAlt}
@@ -45,7 +40,6 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       {/* Card content */}
       <div className="pt-4 flex items-start justify-between gap-4">
         <div className="flex-1">
-          {/* Metadata row */}
           <div className="flex items-center gap-3 mb-2">
             <span className="text-on-surface-variant text-xs font-label tracking-widest uppercase">
               {project.category}
@@ -55,27 +49,15 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
               {project.year}
             </span>
           </div>
-
-          {/* Title */}
-          <h3
-            className={`font-headline text-on-surface group-hover:text-primary transition-colors duration-300 leading-tight ${
-              project.colSpan === 12 ? 'text-2xl md:text-3xl' :
-              project.colSpan === 8 ? 'text-xl md:text-2xl' :
-              'text-lg md:text-xl'
-            }`}
-          >
+          <h3 className="font-headline text-lg md:text-xl text-on-surface group-hover:text-primary transition-colors duration-300 leading-tight">
             {project.title}
           </h3>
-
-          {/* Description for wide cards */}
           {project.description && (
             <p className="mt-2 text-on-surface-variant text-sm font-body leading-relaxed max-w-xl hidden md:block">
               {project.description}
             </p>
           )}
         </div>
-
-        {/* Arrow icon */}
         <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all duration-300 mt-1 flex-shrink-0">
           arrow_outward
         </span>

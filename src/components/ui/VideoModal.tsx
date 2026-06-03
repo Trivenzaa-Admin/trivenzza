@@ -10,6 +10,7 @@ interface VideoModalProps {
 export default function VideoModal({ project, onClose }: VideoModalProps) {
   const embedUrl = getEmbedUrl(project)
 
+
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === 'Escape') onClose()
@@ -44,18 +45,16 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
       >
 
         {/* Video Player */}
-        {embedUrl && (
-          <div className={`w-full bg-black mb-8 ${project.instagramId ? 'max-w-sm mx-auto aspect-[9/16]' : 'aspect-video'}`}>
-            <iframe
-              src={embedUrl}
-              title={project.title}
-              allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-              allowFullScreen
-              className="w-full h-full"
-              style={{ overflow: 'hidden' }}
-            />
-          </div>
-        )}
+        <div className="w-full bg-black mb-8 aspect-video">
+          <iframe
+            src={embedUrl}
+            title={project.title}
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            allowFullScreen
+            className="w-full h-full"
+            style={{ overflow: 'hidden' }}
+          />
+        </div>
 
         {/* Category + Year */}
         <div className="flex items-center gap-3 mb-4">
