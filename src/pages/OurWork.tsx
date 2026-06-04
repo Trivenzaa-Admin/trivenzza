@@ -5,7 +5,7 @@ import type { Project, ProjectCategory } from '../data/projects'
 
 type FilterTab = 'All Projects' | ProjectCategory
 
-const filterTabs: FilterTab[] = ['All Projects', 'Music Videos', 'Commercials']
+const filterTabs: FilterTab[] = ['All Projects', 'Music Videos', 'Short Films & Micro Series', 'Commercials']
 
 export default function OurWork() {
   const [activeFilter, setActiveFilter] = useState<FilterTab>('All Projects')

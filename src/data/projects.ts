@@ -1,4 +1,4 @@
-export type ProjectCategory = 'Music Videos' | 'Commercials'
+export type ProjectCategory = 'Music Videos' | 'Commercials' | 'Short Films & Micro Series'
 
 export interface ProjectCredits {
   director?: string
@@ -100,6 +100,16 @@ export const projects: Project[] = [
     youtubeId: 'mH99_reQy6I',
     imageUrl: ytThumb('mH99_reQy6I'),
     imageAlt: 'Jee Karda Reimagined',
+  },
+  // Short Films & Micro Series
+  {
+    id: 'sf-1',
+    title: 'Love Between The Lines 2 : Miss Mystery',
+    category: 'Short Films & Micro Series',
+    year: '2025',
+    youtubeId: 'AbFxknyFwuY',
+    imageUrl: ytThumb('AbFxknyFwuY'),
+    imageAlt: 'Love Between The Lines 2 : Miss Mystery',
   },
   // Commercials
   {
