@@ -1,12 +1,7 @@
 import { useState } from 'react'
 import { contactContent } from '../data/siteContent'
 
-// ─── Web3Forms Configuration ──────────────────────────────────────────────────
-// 1. Go to https://web3forms.com
-// 2. Enter trivenzaa@gmail.com and click "Create Access Key"
-// 3. Check your inbox for the key and paste it below
-const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY'
-// ─────────────────────────────────────────────────────────────────────────────
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? ''
 
 interface FormState {
   name: string
