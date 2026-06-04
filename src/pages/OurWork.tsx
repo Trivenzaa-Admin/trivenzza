@@ -1,20 +1,22 @@
 import { useState } from 'react'
 import VideoModal from '../components/ui/VideoModal'
-import { projects, getEmbedUrl } from '../data/projects'
+import { getEmbedUrl } from '../data/projects'
 import type { Project, ProjectCategory } from '../data/projects'
+import { PLAYLISTS } from '../data/playlists'
+import { useYouTubePlaylists } from '../hooks/useYouTubePlaylists'
 
 type FilterTab = 'All Projects' | ProjectCategory
-
-const filterTabs: FilterTab[] = ['All Projects', 'Music Videos', 'Short Films & Micro Series', 'Commercials']
+const filterTabs: FilterTab[] = ['All Projects', ...PLAYLISTS.map(p => p.category)]
 
 export default function OurWork() {
   const [activeFilter, setActiveFilter] = useState<FilterTab>('All Projects')
   const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const { projects, loading } = useYouTubePlaylists()
 
   const filteredProjects =
     activeFilter === 'All Projects'
       ? projects
-      : projects.filter((p) => p.category === activeFilter)
+      : projects.filter(p => p.category === activeFilter)
 
   return (
     <main>
@@ -37,7 +39,7 @@ export default function OurWork() {
 
           {/* Filter tabs */}
           <div className="flex flex-wrap items-center gap-2 pb-8 border-b border-outline-variant/20">
-            {filterTabs.map((tab) => (
+            {filterTabs.map(tab => (
               <button
                 key={tab}
                 type="button"
@@ -58,54 +60,62 @@ export default function OurWork() {
       {/* ===== GRID ===== */}
       <section className="py-12 md:py-16 px-6 md:px-12 bg-background">
         <div className="max-w-screen-2xl mx-auto">
-          {filteredProjects.length > 0 ? (
+          {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/10">
-              {filteredProjects.map((project) => {
-                const embedUrl = getEmbedUrl(project)
-                return (
-                  <div
-                    key={project.id}
-                    className="bg-background group cursor-pointer"
-                    onClick={() => { if (embedUrl) setActiveProject(project) }}
-                  >
-                    {/* Thumbnail */}
-                    <div className="relative overflow-hidden aspect-video bg-surface-container-low">
-                      <img
-                        src={project.imageUrl}
-                        alt={project.imageAlt}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 group-hover:brightness-95 transition-all duration-500 group-hover:scale-105"
-                      />
-                      {/* Overlay + play button */}
-                      <div className="absolute inset-0 video-card-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 scale-90 group-hover:scale-100">
-                        <div className="w-12 h-12 rounded-full bg-secondary/90 flex items-center justify-center shadow-lg">
-                          <span
-                            className="material-symbols-outlined text-on-secondary text-2xl"
-                            style={{ fontVariationSettings: "'FILL' 1" }}
-                          >
-                            play_arrow
-                          </span>
-                        </div>
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="bg-background">
+                  <div className="aspect-video bg-surface-container-low animate-pulse" />
+                  <div className="px-5 py-4 flex flex-col gap-2">
+                    <div className="h-3 bg-surface-container-low animate-pulse rounded w-3/4" />
+                    <div className="h-2 bg-surface-container-low animate-pulse rounded w-1/3" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/10">
+              {filteredProjects.map(project => (
+                <div
+                  key={project.id}
+                  className="bg-background group cursor-pointer"
+                  onClick={() => setActiveProject(project)}
+                >
+                  {/* Thumbnail */}
+                  <div className="relative overflow-hidden aspect-video bg-surface-container-low">
+                    <img
+                      src={project.imageUrl}
+                      alt={project.imageAlt}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 group-hover:brightness-95 transition-all duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 video-card-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 scale-90 group-hover:scale-100">
+                      <div className="w-12 h-12 rounded-full bg-secondary/90 flex items-center justify-center shadow-lg">
+                        <span
+                          className="material-symbols-outlined text-on-secondary text-2xl"
+                          style={{ fontVariationSettings: "'FILL' 1" }}
+                        >
+                          play_arrow
+                        </span>
                       </div>
-                    </div>
-
-                    {/* Info */}
-                    <div className="px-5 py-4 flex items-center justify-between gap-3">
-                      <div>
-                        <p className="text-on-surface font-headline text-sm leading-snug group-hover:text-primary transition-colors duration-300">
-                          {project.title}
-                        </p>
-                        <p className="text-on-surface-variant text-[10px] font-label tracking-widest uppercase mt-1">
-                          {project.category}
-                        </p>
-                      </div>
-                      <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-300 text-base flex-shrink-0">
-                        arrow_outward
-                      </span>
                     </div>
                   </div>
-                )
-              })}
+
+                  {/* Info */}
+                  <div className="px-5 py-4 flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-on-surface font-headline text-sm leading-snug group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </p>
+                      <p className="text-on-surface-variant text-[10px] font-label tracking-widest uppercase mt-1">
+                        {project.category}
+                      </p>
+                    </div>
+                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-300 text-base flex-shrink-0">
+                      arrow_outward
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
           ) : (
             <div className="py-24 text-center">
