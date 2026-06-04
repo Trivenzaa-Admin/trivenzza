@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { contactContent } from '../data/siteContent'
 
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? ''
+const WEB3FORMS_ACCESS_KEY = '20af5097-622e-4c07-88d8-27df16193432'
 
 interface FormState {
   name: string
