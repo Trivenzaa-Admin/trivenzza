@@ -4,13 +4,13 @@ import { asset } from '../utils/asset'
 import VideoModal from '../components/ui/VideoModal'
 import HomeCarousel from '../components/ui/HomeCarousel'
 import type { Project } from '../data/projects'
-import { useYouTubePlaylists } from '../hooks/useYouTubePlaylists'
+import { useAllVideos } from '../hooks/useAllVideos'
 import { heroContent } from '../data/siteContent'
 
 export default function Home() {
   const hero = heroContent.home
   const [activeProject, setActiveProject] = useState<Project | null>(null)
-  const { projects } = useYouTubePlaylists()
+  const { projects } = useAllVideos()
 
   const awardPhotos = [
     { src: asset('/media/awards/img_1845.png'),     alt: 'Trivenzaa award moment',                                label: null },

@@ -11,7 +11,8 @@ export interface Project {
   title: string
   category: ProjectCategory
   year: string
-  youtubeId: string
+  youtubeId?: string
+  driveId?: string
   imageUrl: string
   imageAlt: string
   description?: string
@@ -21,5 +22,13 @@ export interface Project {
 export const ytThumb = (id: string) =>
   `https://img.youtube.com/vi/${id}/sddefault.jpg`
 
-export const getEmbedUrl = (project: Project): string =>
-  `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&rel=0`
+export const driveThumbd = (id: string) =>
+  `https://drive.google.com/thumbnail?id=${id}&sz=w400`
+
+export const getEmbedUrl = (project: Project): string => {
+  if (project.youtubeId)
+    return `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&rel=0`
+  if (project.driveId)
+    return `https://drive.google.com/file/d/${project.driveId}/preview`
+  return ''
+}

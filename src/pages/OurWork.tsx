@@ -3,7 +3,7 @@ import VideoModal from '../components/ui/VideoModal'
 import { getEmbedUrl } from '../data/projects'
 import type { Project, ProjectCategory } from '../data/projects'
 import { PLAYLISTS } from '../data/playlists'
-import { useYouTubePlaylists } from '../hooks/useYouTubePlaylists'
+import { useAllVideos } from '../hooks/useAllVideos'
 
 type FilterTab = 'All Projects' | ProjectCategory
 const filterTabs: FilterTab[] = ['All Projects', ...PLAYLISTS.map(p => p.category)]
@@ -11,7 +11,7 @@ const filterTabs: FilterTab[] = ['All Projects', ...PLAYLISTS.map(p => p.categor
 export default function OurWork() {
   const [activeFilter, setActiveFilter] = useState<FilterTab>('All Projects')
   const [activeProject, setActiveProject] = useState<Project | null>(null)
-  const { projects, loading } = useYouTubePlaylists()
+  const { projects, loading } = useAllVideos()
 
   const filteredProjects =
     activeFilter === 'All Projects'
