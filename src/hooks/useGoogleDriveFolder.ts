@@ -34,20 +34,31 @@ interface DriveFile {
   createdTime?: string
 }
 
+function fetchViaJSONP(url: string): Promise<{ files: DriveFile[] }> {
+  return new Promise((resolve, reject) => {
+    const cbName = `_driveCallback_${Date.now()}`
+    const script = document.createElement('script')
+    ;(window as Record<string, unknown>)[cbName] = (data: { files: DriveFile[] }) => {
+      delete (window as Record<string, unknown>)[cbName]
+      document.head.removeChild(script)
+      resolve(data)
+    }
+    script.src = `${url}&callback=${cbName}`
+    script.onerror = () => {
+      delete (window as Record<string, unknown>)[cbName]
+      document.head.removeChild(script)
+      reject(new Error('JSONP failed'))
+    }
+    document.head.appendChild(script)
+  })
+}
+
 let cache: Project[] | null = null
 
 export async function fetchDriveVideos(): Promise<Project[]> {
   if (cache !== null) return cache
 
-  // Route through CORS proxy since Apps Script doesn't send CORS headers
-  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(APPS_SCRIPT_URL)}`
-  const res = await fetch(proxyUrl)
-  if (!res.ok) return []
-
-  const { contents } = await res.json()
-  if (!contents) return []
-
-  const { files } = JSON.parse(contents)
+  const { files } = await fetchViaJSONP(APPS_SCRIPT_URL)
   if (!Array.isArray(files)) return []
 
   const projects: Project[] = files.flatMap((file: DriveFile) => {
