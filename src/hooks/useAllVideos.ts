@@ -13,6 +13,7 @@ interface RawDrive {
   id: string
   name: string
   createdTime?: string
+  thumbnailId?: string
 }
 
 function normalizeCategory(raw: string): ProjectCategory | null {
@@ -54,7 +55,7 @@ function buildProjects(): Project[] {
       category,
       year,
       driveId: file.id,
-      imageUrl: driveThumbd(file.id),
+      imageUrl: driveThumbd(file.thumbnailId ?? file.id),
       imageAlt: rawTitle,
     }]
   })
