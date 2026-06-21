@@ -84,7 +84,15 @@ export default function OurWork() {
                     <img
                       src={project.imageUrl}
                       alt={project.imageAlt}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 group-hover:brightness-95 transition-all duration-500 group-hover:scale-105"
+                      onError={e => {
+                        const el = e.currentTarget
+                        if (project.youtubeId && !el.src.includes('mqdefault')) {
+                          el.src = `https://img.youtube.com/vi/${project.youtubeId}/mqdefault.jpg`
+                        }
+                      }}
                     />
                     <div className="absolute inset-0 video-card-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 scale-90 group-hover:scale-100">

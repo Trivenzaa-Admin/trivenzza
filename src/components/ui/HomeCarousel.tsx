@@ -104,6 +104,8 @@ export default function HomeCarousel({ projects, onVideoOpen }: HomeCarouselProp
                   <img
                     src={project.imageUrl}
                     alt={project.imageAlt}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 group-hover:brightness-95 transition-all duration-500 group-hover:scale-105"
                     draggable={false}
                   />
