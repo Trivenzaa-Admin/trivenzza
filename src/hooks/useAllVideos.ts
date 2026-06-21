@@ -35,6 +35,8 @@ function buildProjects(): Project[] {
   }))
 
   const driveProjects: Project[] = (videoData.driveFiles as RawDrive[]).flatMap(file => {
+    // Skip non-video files (Google Vids, Docs etc. — they have no video extension)
+    if (!/\.(mp4|mov|avi|mkv|webm|wmv|flv|m4v)$/i.test(file.name)) return []
     const nameWithoutExt = file.name.replace(/\.[^/.]+$/, '').trim()
     const colonIdx = nameWithoutExt.indexOf(':')
     if (colonIdx === -1) return []
