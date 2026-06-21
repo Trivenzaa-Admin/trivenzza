@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import VideoModal from '../components/ui/VideoModal'
-import { getEmbedUrl } from '../data/projects'
 import type { Project, ProjectCategory } from '../data/projects'
 import { PLAYLISTS } from '../data/playlists'
 import { useAllVideos } from '../hooks/useAllVideos'
