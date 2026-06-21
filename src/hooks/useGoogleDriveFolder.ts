@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react'
 import type { Project, ProjectCategory } from '../data/projects'
 import { driveThumbd } from '../data/projects'
 
-const FOLDER_ID = '1suxPpKr4oqrALu5-asOB1ejJX_qhaC8X'
-// Read-only API key restricted to Google Drive API + trivenzaa.com domain
-const API_KEY = 'AIzaSyDWfSteRAyIhaDUYxH_UzxrxzoHmJx_B7k'
+const APPS_SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbyF1-rvJJqVluhaCN6suL6w3nGSF0KgN9BIR6xJWUBAb7BRsMS6hS35s2huO4LGgzTxdA/exec?token=triv2025secret'
 
 function normalizeCategory(raw: string): ProjectCategory | null {
   const lower = raw.toLowerCase()
@@ -40,17 +39,15 @@ let cache: Project[] | null = null
 export async function fetchDriveVideos(): Promise<Project[]> {
   if (cache !== null) return cache
 
-  const params = new URLSearchParams({
-    q: `'${FOLDER_ID}' in parents and trashed=false and mimeType contains 'video'`,
-    key: API_KEY,
-    fields: 'files(id,name,createdTime)',
-    orderBy: 'createdTime desc',
-  })
-
-  const res = await fetch(`https://www.googleapis.com/drive/v3/files?${params}`)
+  // Route through CORS proxy since Apps Script doesn't send CORS headers
+  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(APPS_SCRIPT_URL)}`
+  const res = await fetch(proxyUrl)
   if (!res.ok) return []
 
-  const { files } = await res.json()
+  const { contents } = await res.json()
+  if (!contents) return []
+
+  const { files } = JSON.parse(contents)
   if (!Array.isArray(files)) return []
 
   const projects: Project[] = files.flatMap((file: DriveFile) => {
