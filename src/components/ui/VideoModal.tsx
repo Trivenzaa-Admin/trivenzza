@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import type { Project } from '../../data/projects'
-import { getEmbedUrl } from '../../data/projects'
+import { getEmbedUrl, driveThumbd } from '../../data/projects'
 
 interface VideoModalProps {
   project: Project
@@ -9,6 +9,11 @@ interface VideoModalProps {
 
 export default function VideoModal({ project, onClose }: VideoModalProps) {
   const embedUrl = getEmbedUrl(project)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768)
+  }, [])
 
 
   useEffect(() => {
@@ -45,15 +50,44 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
       >
 
         {/* Video Player */}
-        <div className="w-full bg-black mb-8 aspect-video">
-          <iframe
-            src={embedUrl}
-            title={project.title}
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-            allowFullScreen
-            className="w-full h-full"
-            style={{ overflow: 'hidden' }}
-          />
+        <div className="w-full bg-black mb-8 aspect-video relative">
+          {project.driveId && isMobile ? (
+            <a
+              href={`https://drive.google.com/file/d/${project.driveId}/view`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 flex flex-col items-center justify-center gap-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={driveThumbd(project.driveId)}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover opacity-40"
+              />
+              <div className="relative z-10 flex flex-col items-center gap-3">
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <span
+                    className="material-symbols-outlined text-black text-4xl"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    play_arrow
+                  </span>
+                </div>
+                <span className="text-white text-xs font-label tracking-widest uppercase bg-black/60 px-4 py-2">
+                  Watch on Google Drive
+                </span>
+              </div>
+            </a>
+          ) : (
+            <iframe
+              src={embedUrl}
+              title={project.title}
+              allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+              allowFullScreen
+              className="w-full h-full"
+              style={{ overflow: 'hidden' }}
+            />
+          )}
         </div>
 
         {/* Category + Year */}
