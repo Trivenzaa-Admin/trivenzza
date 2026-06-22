@@ -20,7 +20,7 @@ export interface Project {
 }
 
 export const ytThumb = (id: string) =>
-  `https://img.youtube.com/vi/${id}/sddefault.jpg`
+  `https://img.youtube.com/vi/${id}/mqdefault.jpg`
 
 export const driveThumbd = (id: string) =>
   `https://drive.google.com/thumbnail?id=${id}&sz=w400`

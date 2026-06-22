@@ -108,6 +108,12 @@ export default function HomeCarousel({ projects, onVideoOpen }: HomeCarouselProp
                     decoding="async"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-75 group-hover:brightness-95 transition-all duration-500 group-hover:scale-105"
                     draggable={false}
+                    onError={e => {
+                      const el = e.currentTarget
+                      if (project.youtubeId && !el.src.includes('default.jpg')) {
+                        el.src = `https://img.youtube.com/vi/${project.youtubeId}/default.jpg`
+                      }
+                    }}
                   />
 
                   {/* Gradient overlay on hover */}
